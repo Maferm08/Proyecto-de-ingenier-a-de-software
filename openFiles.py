@@ -20,7 +20,7 @@ for path in filepaths:
     file = codecs.open(path, "r", "utf-8")
     end = time.time()
     run_time = end - start
-    print(file, ': ', run_time)
+    print(path, ': ', run_time)
     time_total = time_total + run_time
 
 # Imprimir tiempos totales de ejecución y de abrir archivos
