@@ -45,7 +45,6 @@ for path in filepaths:
     run_time = end - start
     print(path.replace("Remove_tags_files/", ""), ': ', run_time)
     time_total = time_total + run_time
-    print("time_total", time_total)
 
 # Imprimir tiempos totales de ejecución y de abrir archivos
 print("Tiempo total en organizar el html: ", time_total)
