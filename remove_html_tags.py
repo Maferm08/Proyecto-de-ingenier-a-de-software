@@ -18,7 +18,6 @@ For que recorre todos los archivos html y crea en la carpeta Remove_tags_files l
 """
 for path in filepaths:
     #Inicia temporizador
-    print(path)
     start = time.time()
     # Abrimos html que queremos
     try:
@@ -34,9 +33,8 @@ for path in filepaths:
     #Terminamos timer
     end = time.time()
     run_time = end - start
-    # print(path, ': ', run_time)
+    print(path.replace("Files/", ""), ': ', run_time)
     time_total = time_total + run_time
-    print("time_total", time_total)
 
 # Imprimir tiempos totales de ejecución y de abrir archivos
 print("Tiempo total en eliminar las etiquetas: ", time_total)
