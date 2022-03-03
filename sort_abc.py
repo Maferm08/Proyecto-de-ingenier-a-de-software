@@ -37,7 +37,7 @@ for path in filepaths:
     #Terminamos timer
     end = time.time()
     run_time = end - start
-    print(path.replace("Files/", ""), ': ', run_time)
+    print(path.replace("Remove_tags_files/", ""), ': ', run_time)
     time_total = time_total + run_time
 
 # Imprimir tiempos totales de ejecución y de abrir archivos
