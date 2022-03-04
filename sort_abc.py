@@ -17,6 +17,7 @@ CLEANR = re.compile('<.*?>')
 """
 For que recorre todos los archivos html y crea en la carpeta Remove_tags_files los mismos htmls pero sin tags
 """
+#String que guarda el contenido de los archivos
 consolidated_string=" "
  
 for path in filepaths:
@@ -34,8 +35,9 @@ for path in filepaths:
 
     file_sorted_alphabetically="\n ".join(sorted(file.lower().split()))
     
-    
+    #Guardamos el archivo ordenado alfabeticamente en una carpeta
     Sort_alphabetical_files.write(file_sorted_alphabetically)
+    
     consolidated_string+= file_sorted_alphabetically
     
     Sort_alphabetical_files.close()
@@ -46,10 +48,13 @@ for path in filepaths:
     print(path.replace("Files/", ""), ': ', run_time)
     time_total = time_total + run_time
 
-# Imprimir tiempos totales de ejecución y de abrir archivos
+
+#Guardar string en archivo consolidado
 consolidated_file=open('actividad_4_consolidado.txt','w') 
-consolidated_file.write("\n ".join(sorted(consolidated_string.split())))
+sorted_consolidated_string="\n ".join(sorted(consolidated_string.split()))
+consolidated_file.write(sorted_consolidated_string)
 consolidated_file.close()
+# Imprimir tiempos totales de ejecución y de abrir archivos
 print("Tiempo total en eliminar las etiquetas: ", time_total)
 total_end = time.time()
 print("Tiempo total de ejecución: ", total_end - total_start)
