@@ -5,7 +5,7 @@ import time
 #Iniciamos timer de ejecución
 total_start = time.time()
 #Path de los archivos que tienen en común
-folderpath = r"Remove_tags_files/" 
+folderpath = r"Sort_text_files/" 
 #Juntar el path en común con el nombre de los archivos y crear lista
 filepaths  = [os.path.join(folderpath, name) for name in os.listdir(folderpath)]
 
@@ -27,9 +27,9 @@ for path in filepaths:
         file = open(path, encoding="Latin-1").read()
     
    
-    Sort_alphabetical_files = open( "sort_alphabetical/"+path.replace("Remove_tags_files/", ""), 'w')
+    Sort_alphabetical_files = open( "sort_alphabetical/"+path.replace("Sort_text_files/", ""), 'w')
     
-    files_sorted_alphabetically=" ".join(sorted(file.split()))
+    files_sorted_alphabetically="\n ".join(sorted(file.split()))
     Sort_alphabetical_files.write(files_sorted_alphabetically)
     
     
