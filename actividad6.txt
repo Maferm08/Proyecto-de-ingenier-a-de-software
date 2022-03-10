@@ -387,3 +387,5 @@ how,1,1
 see,1,1
 
 tagsInformation,1,1
+Tiempo total en tokenizar los archivos:  0.011008262634277344
+Tiempo total de ejecución:  0.13800358772277832
