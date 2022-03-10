@@ -12,7 +12,10 @@ time_total = 0
 """
 For que recorre todos los archivos html y crea en la carpeta Remove_tags_files los mismos htmls pero sin tags
 """
+token_words_dict=dict()
+token_words_count=dict()
 total_count = dict()
+
 for path in filepaths:
     #Inicia temporizador
     start = time.time()
@@ -25,8 +28,9 @@ for path in filepaths:
     
     counts = dict()
     words = file.split()
-
+  
     for word in words:
+        
         if word in counts:
             counts[word] += 1
         else:
@@ -36,10 +40,23 @@ for path in filepaths:
             total_count[word] += 1
         else:
             total_count[word] = 1
+        token_words_dict[path]=word 
+        if word in token_words_dict.values() and  path in token_words_dict:
+            token_words_count[word]=1
+        elif  word in token_words_dict.values() and not path in token_words_dict:
+             token_words_count[word]+=1  
+       
+            
+    
+                               
+   
     sort_counts = sorted(counts.items(), key=lambda x: x[1], reverse=True)
-    Sort_alphabetical_files = open( "Sort_Frequency_files/"+path.replace("Sort_text_files/", ""), 'w')
-    for i in sort_counts:
-        Sort_alphabetical_files.write(str(i)+'\n')
+    sort_token_counts = sorted(token_words_count.items(), key=lambda x: x[1], reverse=True)
+    Sort_alphabetical_files = open( "Tokenized"+path.replace("Sort_text_files/", ""), 'w')
+  
+    for key, i in sort_counts:
+       
+        Sort_alphabetical_files.write(str(key)+','+str(i)+','+str(1)+'\n')
     Sort_alphabetical_files.close() 
     
     #Terminamos timer
@@ -49,11 +66,13 @@ for path in filepaths:
     time_total = time_total + run_time
 
 sort_total_counts = sorted(total_count.items(), key=lambda x: x[1], reverse=True)
-for i in sort_total_counts:
-    print(i)
+for key, i in sort_total_counts:
+    print(str(key)+','+str(i)+','+str(1)+'\n')
 # Imprimir tiempos totales de ejecución y de abrir archivos
-print("Tiempo total en eliminar las etiquetas: ", time_total)
+print("Tiempo para tokenizar  ", time_total)
 total_end = time.time()
 print("Tiempo total de ejecución: ", total_end - total_start)
+
+
 
 
