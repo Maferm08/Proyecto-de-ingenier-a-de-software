@@ -70,6 +70,8 @@ for word in dic:
         freq = freq + 1
     frequency_of_docs[val] = freq
 
+
+
 # Agregar posting a diccionario 
 diccionario = []
 posting = 0
