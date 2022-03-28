@@ -1,10 +1,6 @@
-from itertools import count
-import re
-import os
 import time
 
 from dict_hash import dict_hash
-from random import randint
 #Iniciamos timer de ejecución
 total_start = time.time()
 #Juntar el path en común con el nombre de los archivos y crear lista
