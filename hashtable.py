@@ -57,15 +57,15 @@ for x in dic:
         hash_dic_posting[hash(filepaths[3])]=filepaths[3] + ' , ' + freq
         posting.append(filepaths[3] + ' , ' + freq)
         
-sorted_hash_dic_posting=[]
+sorted_hash_array_posting=[]
 for key, value in hash_dic_posting.items():
-    sorted_hash_dic_posting.append(str(key)+': '+value)
+    sorted_hash_array_posting.append(str(key)+': '+value)
     
 
 
 # Create posting.html
 posting_files = open( "Activity_8_files/posting.html", 'w')
-posting_files.write('\n'.join(sorted_hash_dic_posting))
+posting_files.write('\n'.join(sorted_hash_array_posting))
 posting_files.close()
 
 # DICCIONARIO
@@ -90,12 +90,12 @@ for word in frequency_of_docs:
     hash_dic[hash(word)]=(word + ',' + str(frequency_of_docs[word]) + ',' + str(posting))
     diccionario.append(word + ',' + str(frequency_of_docs[word]) + ',' + str(posting))
     posting= frequency_of_docs[word] + posting
-sorted_hash_dic=[]
+sorted_hash_array=[]
 for key, value in hash_dic.items():
-    sorted_hash_dic.append(str(key)+': '+value)
+    sorted_hash_array.append(str(key)+': '+value)
 # print(hash_dic)
 posting_files = open( "Activity_8_files/diccionario.html", 'w')
-posting_files.write('\n'.join(sorted_hash_dic))
+posting_files.write('\n'.join(sorted_hash_array))
 posting_files.close()
 
 
