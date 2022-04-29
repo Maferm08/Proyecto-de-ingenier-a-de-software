@@ -54,6 +54,7 @@ for x in dic:
         freq = x.rpartition(',')[2]
         posting.append(filepaths[3] + ' , ' + freq)
 
+activity_11_posting = posting
 # Create posting.html
 posting_files = open( "Activity_7_files/posting.html", 'w')
 posting_files.write('\n'.join(posting))
