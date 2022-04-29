@@ -20,13 +20,18 @@ documents={}
 documents_list=[]
 i = 0
 for path in filepaths:
+    #Inicia temporizador de Documents
+    start_document_time = time.time()
     documents[i+1]=path.replace("Files/", "")
     documents_list.append(str(i+1) + ": " + path.replace("Files/", ""))
     i = i + 1
 
     documents_file = open("Activity_11_files/Documents.html",'w')
     documents_file.write('\n'.join(documents_list))
+end_document_time = time.time()
 
+#Inicia temporizador de Posting
+start_posting_time = time.time()
 token_string = "Tokenized/Tokenized"
 posting_updated = []
 for token in activity_11_posting:
@@ -38,4 +43,8 @@ for token in activity_11_posting:
 
 posting_file = open("Activity_11_files/posting.html", "w")
 posting_file.write('\n'.join(posting_updated))
-
+end_posting_time = time.time()
+print("Tiempo para crear Documents.html: ", end_document_time - start_document_time)
+print("Tiempo para crear Posting.html: ", end_posting_time - start_posting_time)
+total_end = time.time()
+print("Tiempo total", total_end - total_start)
