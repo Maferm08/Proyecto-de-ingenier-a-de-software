@@ -11,13 +11,13 @@ filepaths  = [os.path.join(folderpath, name) for name in os.listdir(folderpath)]
 
 time_total = 0
 word_bank = ['Gauch', 'elephants', 'CSCE', 'Arkansas', 'gift', 'abcdef', '20','20.07', 
-             '123-456-7890', 'lawyer', 'consumers', 'garden' 'computer', 'United' 'States', 'laws']
+             '123-456-7890', 'lawyer', 'consumers', 'garden' 'computer', 'United', 'States', 'laws']
 
 dic =[]
 
+start = time.time()
 for path in filepaths:
     #Inicia temporizador
-    start = time.time()
     # Abrimos html que queremos
     try:
         file = open(path, "r").read()
@@ -25,7 +25,6 @@ for path in filepaths:
         # En caso de tener algún valor del alfabeto latino
         file = open(path, encoding="Latin-1").read()
     
-    # Fill dic with every word in 049, hard, medium and simple
     file = file.split()
     for word in word_bank:
         if word in file:
