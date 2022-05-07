@@ -7,8 +7,7 @@ def searchWord(word):
     start = time.time()
     word_list = []
    
-    word_list.append("Retrieve " + word)
-    word_list.append("Top documents")
+  
     i = 0
     for path in filepaths:
         #Inicia temporizador
