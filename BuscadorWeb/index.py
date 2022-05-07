@@ -1,10 +1,23 @@
-from flask import Flask
-from Activity13 import *
+from flask import Flask, render_template
+from flask import request
+from search_files import *
+import cgi
 app=Flask(__name__)
 
 @app.route('/')
 def home():
-    searchWord()
-    return 'yep'
+    
+    return render_template('public_html.html')
+@app.route('/results')
+def results():
+    word=request.args.get('word')
+    results=searchWord(word)
+    html=' '
+    for result in results:
+        html+=('<h1><a href=''>'+result+'</a></h1>')
+
+    
+    # return render_template('results.html')
+    return html
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
