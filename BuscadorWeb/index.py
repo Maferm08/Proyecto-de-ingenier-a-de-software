@@ -14,7 +14,7 @@ def results():
     results=searchWord(word)
     html=' '
     for result in results:
-        html+=('<h1><a href=''>'+result+'</a></h1>')
+        html+=('<h2>'+result+'</h2>')
 
     
     # return render_template('results.html')
